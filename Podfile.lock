@@ -1,0 +1,29 @@
+PODS:
+  - GoogleMaps (2.7.0):
+    - GoogleMaps/Maps (= 2.7.0)
+  - GoogleMaps/Base (2.7.0)
+  - GoogleMaps/Maps (2.7.0):
+    - GoogleMaps/Base
+  - GooglePlaces (2.7.0):
+    - GoogleMaps/Base (= 2.7.0)
+  - SnapKit (4.0.1)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - GooglePlaces
+  - SnapKit (~> 4.0.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - GoogleMaps
+    - GooglePlaces
+    - SnapKit
+
+SPEC CHECKSUMS:
+  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
+  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+
+PODFILE CHECKSUM: 67987f083cccf3b486f4ac5c3cdc48cfa9c5fc62
+
+COCOAPODS: 1.5.3

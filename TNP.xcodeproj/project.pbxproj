@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5050C438218C74D2009B38CA /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5050C437218C74D2009B38CA /* Global.swift */; };
+		5050C43A218C75A5009B38CA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5050C439218C75A5009B38CA /* Extensions.swift */; };
 		50BDC203218656950023CF40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BDC202218656950023CF40 /* AppDelegate.swift */; };
-		50BDC205218656950023CF40 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BDC204218656950023CF40 /* ViewController.swift */; };
-		50BDC208218656950023CF40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDC206218656950023CF40 /* Main.storyboard */; };
+		50BDC205218656950023CF40 /* MainMapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50BDC204218656950023CF40 /* MainMapPage.swift */; };
 		50BDC20A218656970023CF40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50BDC209218656970023CF40 /* Assets.xcassets */; };
-		50BDC20D218656970023CF40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 50BDC20B218656970023CF40 /* LaunchScreen.storyboard */; };
+		698092C90728F6E12D02837E /* Pods_TNP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D027A5297168E0FF021BDDF0 /* Pods_TNP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05046556EB09559B8B681A4B /* Pods-TNP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TNP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TNP/Pods-TNP.debug.xcconfig"; sourceTree = "<group>"; };
+		5050C437218C74D2009B38CA /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		5050C439218C75A5009B38CA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		50BDC1FF218656950023CF40 /* TNP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TNP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		50BDC202218656950023CF40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		50BDC204218656950023CF40 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		50BDC207218656950023CF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		50BDC204218656950023CF40 /* MainMapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMapPage.swift; sourceTree = "<group>"; };
 		50BDC209218656970023CF40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50BDC20C218656970023CF40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		50BDC20E218656970023CF40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D027A5297168E0FF021BDDF0 /* Pods_TNP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TNP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDAC25AC171A4A9C232ABFB5 /* Pods-TNP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TNP.release.xcconfig"; path = "Pods/Target Support Files/Pods-TNP/Pods-TNP.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				698092C90728F6E12D02837E /* Pods_TNP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				50BDC201218656950023CF40 /* TNP */,
 				50BDC200218656950023CF40 /* Products */,
+				86A519D6F739281910464277 /* Pods */,
+				C2BDC2EE74679D942D98AC47 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,13 +62,30 @@
 			isa = PBXGroup;
 			children = (
 				50BDC202218656950023CF40 /* AppDelegate.swift */,
-				50BDC204218656950023CF40 /* ViewController.swift */,
-				50BDC206218656950023CF40 /* Main.storyboard */,
+				5050C437218C74D2009B38CA /* Global.swift */,
+				5050C439218C75A5009B38CA /* Extensions.swift */,
+				50BDC204218656950023CF40 /* MainMapPage.swift */,
 				50BDC209218656970023CF40 /* Assets.xcassets */,
-				50BDC20B218656970023CF40 /* LaunchScreen.storyboard */,
 				50BDC20E218656970023CF40 /* Info.plist */,
 			);
 			path = TNP;
+			sourceTree = "<group>";
+		};
+		86A519D6F739281910464277 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				05046556EB09559B8B681A4B /* Pods-TNP.debug.xcconfig */,
+				DDAC25AC171A4A9C232ABFB5 /* Pods-TNP.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C2BDC2EE74679D942D98AC47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D027A5297168E0FF021BDDF0 /* Pods_TNP.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50BDC211218656970023CF40 /* Build configuration list for PBXNativeTarget "TNP" */;
 			buildPhases = (
+				B72EE812409399C6E56F284D /* [CP] Check Pods Manifest.lock */,
 				50BDC1FB218656950023CF40 /* Sources */,
 				50BDC1FC218656950023CF40 /* Frameworks */,
 				50BDC1FD218656950023CF40 /* Resources */,
+				AF12D05FE3D6B601CF4F14DE /* [CP] Embed Pods Frameworks */,
+				E24F4A48E172434B41220325 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -122,44 +149,96 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BDC20D218656970023CF40 /* LaunchScreen.storyboard in Resources */,
 				50BDC20A218656970023CF40 /* Assets.xcassets in Resources */,
-				50BDC208218656950023CF40 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AF12D05FE3D6B601CF4F14DE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TNP/Pods-TNP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TNP/Pods-TNP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B72EE812409399C6E56F284D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TNP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E24F4A48E172434B41220325 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TNP/Pods-TNP-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TNP/Pods-TNP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		50BDC1FB218656950023CF40 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50BDC205218656950023CF40 /* ViewController.swift in Sources */,
+				50BDC205218656950023CF40 /* MainMapPage.swift in Sources */,
 				50BDC203218656950023CF40 /* AppDelegate.swift in Sources */,
+				5050C43A218C75A5009B38CA /* Extensions.swift in Sources */,
+				5050C438218C74D2009B38CA /* Global.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		50BDC206218656950023CF40 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50BDC207218656950023CF40 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		50BDC20B218656970023CF40 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				50BDC20C218656970023CF40 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		50BDC20F218656970023CF40 /* Debug */ = {
@@ -280,6 +359,7 @@
 		};
 		50BDC212218656970023CF40 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05046556EB09559B8B681A4B /* Pods-TNP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +378,7 @@
 		};
 		50BDC213218656970023CF40 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAC25AC171A4A9C232ABFB5 /* Pods-TNP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

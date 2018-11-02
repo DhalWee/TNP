@@ -1,0 +1,6 @@
+framework module Pods_TNP {
+  umbrella header "Pods-TNP-umbrella.h"
+
+  export *
+  module * { export * }
+}
