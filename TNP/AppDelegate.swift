@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = UINavigationController(rootViewController: MainMapPage())
         
-        GMSServices.provideAPIKey("AIzaSyBjH-VxvPzeIERE_38UW4sXd5MrjQiN910")
-        GMSPlacesClient.provideAPIKey("AIzaSyBjH-VxvPzeIERE_38UW4sXd5MrjQiN910")
+        GMSServices.provideAPIKey(googleAPI)
+        GMSPlacesClient.provideAPIKey(googleAPI)
         
         return true
     }

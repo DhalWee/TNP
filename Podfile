@@ -9,5 +9,7 @@ target 'TNP' do
   pod 'SnapKit', '~> 4.0.0'
   pod 'GoogleMaps'
   pod 'GooglePlaces'
+  pod 'Alamofire', '~> 4.7'
+  pod 'SwiftyJSON'
 
 end

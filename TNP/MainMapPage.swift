@@ -10,6 +10,8 @@ import UIKit
 import GoogleMaps
 import GooglePlaces
 import SnapKit
+import Alamofire
+import SwiftyJSON
 
 class MainMapPage: UIViewController {
     
@@ -20,11 +22,17 @@ class MainMapPage: UIViewController {
     var placesClient: GMSPlacesClient!
     var zoomLevel: Float = 15.0
     
+    var myLocation: CLLocation = CLLocation()
+    
     // An array to hold the list of likely places.
     var likelyPlaces: [GMSPlace] = []
     
     // The currently selected place.
     var selectedPlace: GMSPlace?
+    
+    var parkingPlaces: [CLLocationCoordinate2D] = [CLLocationCoordinate2D(latitude: 37.329398, longitude: -122.031365),
+                                                   CLLocationCoordinate2D(latitude: 37.323356421896314, longitude: -122.03960862010717),
+                                                   CLLocationCoordinate2D(latitude: 37.343130655841115, longitude: -122.04149689525366)]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,14 +49,7 @@ class MainMapPage: UIViewController {
         let camera = GMSCameraPosition.camera(withLatitude: -33.76, longitude: 151.20, zoom: zoomLevel)
         mapView = GMSMapView.map(withFrame: CGRect.zero, camera: camera)
         view = mapView
-        
-        for i in 0..<3 {
-            let coordinate = CLLocationCoordinate2D(latitude: Double("-37.3323314\(i)")!, longitude: Double("-122.0312186\(i)")!)
-            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            let markerView = setNewMarkerView(color: UIColor(hex: green), label: "\(i)")
-            setNewMarker(markerView, location)
-        }
-        
+        mapView.delegate = self
         
         locationManager = CLLocationManager()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -58,6 +59,9 @@ class MainMapPage: UIViewController {
         locationManager.delegate = self
         
         placesClient = GMSPlacesClient.shared()
+        
+        putMarks()
+//        putRoad(to: parkingPlaces[1])
         
         
     }
@@ -95,7 +99,7 @@ extension MainMapPage {
             let bv = UIView()
             bv.layer.cornerRadius = 25
             bv.layer.masksToBounds = true
-            bv.alpha = 0.2
+            bv.alpha = 0.4
             bv.backgroundColor = color
             return bv
         }()
@@ -222,20 +226,68 @@ extension MainMapPage {
         marker.map = mapView
     }
     
+    func putRoad(to: CLLocationCoordinate2D) {
+        mapView.clear()
+        putMarks()
+        setNewMarker(setMyMarkerView(), myLocation)
+        
+        let origin = "\(myLocation.coordinate.latitude),\(myLocation.coordinate.longitude)"
+        let destination = "\(to.latitude),\(to.longitude)"
+        
+        let urlString = "https://maps.googleapis.com/maps/api/directions/json?origin=\(origin)&destination=\(destination)&mode=driving&key=\(googleAPI)"
+        let url = URL(string: urlString)
+        
+        Alamofire.request(url!).responseJSON { (response) in
+            do {
+                let json = try JSON(data: response.data!)
+                let routes = json["routes"].arrayValue
+                for route in routes
+                {
+                    let routeOverviewPolyline = route["overview_polyline"].dictionary
+                    let points = routeOverviewPolyline?["points"]?.stringValue
+                    let path = GMSPath.init(fromEncodedPath: points!)
+                    let polyline = GMSPolyline.init(path: path)
+                    polyline.strokeWidth = 5
+                    polyline.strokeColor = UIColor(hex: blue)
+                    polyline.map = self.mapView
+                }
+            } catch let error as NSError {
+                print("MSG: json error \(error)")
+            }
+        }
+        
+    }
+    
+    func putMarks() {
+        for i in 0..<parkingPlaces.count {
+            let coordinate = parkingPlaces[i]
+            let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
+            var markerView = UIView()
+            if i < 1 {
+                markerView = setNewMarkerView(color: UIColor(hex: yellow), label: "\(i+1)")
+            } else {
+                markerView = setNewMarkerView(color: UIColor(hex: green), label: "\(i+1)")
+            }
+            
+            setNewMarker(markerView, location)
+            print("Added: \(i) marker")
+        }
+    }
+    
 }
 
 //Map delegation
-extension MainMapPage: CLLocationManagerDelegate {
+extension MainMapPage: CLLocationManagerDelegate, GMSMapViewDelegate {
     
     // Handle incoming location events.
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let location: CLLocation = locations.last!
-        print("Location: \(location)")
+        myLocation = locations.last!
+        print("Location: \(myLocation)")
         
-        let camera = GMSCameraPosition.camera(withLatitude: location.coordinate.latitude,
-                                              longitude: location.coordinate.longitude,
+        let camera = GMSCameraPosition.camera(withLatitude: myLocation.coordinate.latitude,
+                                              longitude: myLocation.coordinate.longitude,
                                               zoom: zoomLevel)
-        setNewMarker(setMyMarkerView(), location)
+        setNewMarker(setMyMarkerView(), myLocation)
         
         
         if mapView.isHidden {
@@ -269,5 +321,14 @@ extension MainMapPage: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         locationManager.stopUpdatingLocation()
         print("Error: \(error)")
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTapAt coordinate: CLLocationCoordinate2D) {
+        print("You tapped at \(coordinate.latitude), \(coordinate.longitude)")
+    }
+    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        putRoad(to: marker.position)
+        return true
     }
 }
